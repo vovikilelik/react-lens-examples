@@ -3,6 +3,8 @@ import { createStore } from '@vovikilelik/react-lens';
 export interface Form {
 	counter: number;
 	input: string;
+	inputs: string[];
+	counters: number[];
 }
 
 export interface AppStore {
@@ -12,7 +14,9 @@ export interface AppStore {
 const initData: AppStore = {
 	form: {
 		counter: 0,
-		input: ''
+		input: '',
+		inputs: [],
+		counters: []
 	}
 }
 
