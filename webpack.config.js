@@ -113,7 +113,6 @@ module.exports = (env, argv) => {
 						new HtmlWebpackPlugin({
 								template: path.join(__dirname, '/src', 'index.html')
 						}),
-						isDebug && bundleAnalyzerPlugin,
 						isDev && unusedWebpackPlugin
 				].filter(v => v)
 		}
