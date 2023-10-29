@@ -1,0 +1,44 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"eslint-config-prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module",
+		"tsconfigRootDir": "./"
+	},
+	"plugins": ["react", "@typescript-eslint", "eslint-plugin-prettier", "eslint-plugin-import"],
+	"rules": {
+		"max-len": ["warn", { "code": 125 }],
+		"prefer-const": "warn",
+		"no-tabs": 0,
+		"indent": [1, "tab", { "SwitchCase": 1 }],
+		"object-curly-spacing": ["warn", "always"],
+		"block-spacing": "warn",
+		"array-bracket-spacing": "warn",
+		"template-curly-spacing": "warn",
+		"quotes": ["warn", "single"],
+		"semi": ["warn", "always"],
+		"@typescript-eslint/no-empty-interface": "off",
+		"@typescript-eslint/no-empty-function": "off",
+		"no-prototype-builtins": "warn",
+		"@typescript-eslint/ban-ts-comment": "warn",
+		"@typescript-eslint/no-var-requires": "warn",
+		"no-case-declarations": "off",
+		"react/display-name": "off",
+		"react/prop-types": "off",
+		"no-fallthrough": "warn",
+		"no-empty": "warn"
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"bracketSpacing": true,
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"useTabs": true,
+	"arrowParens": "avoid",
+	"trailingComma": "es5",
+	"printWidth": 125,
+	"parser": "typescript",
+	"semi": true,
+	"overrides": [
+		{
+			"files": ["*.js", "*.cjs", "*.mjs"],
+			"options": {
+				"parser": "javascript"
+			}
+		},
+
+		{
+			"files": "*.ts",
+			"options": {
+				"parser": "typescript"
+			}
+		},
+
+		{
+			"files": ["*.json", "*.jsonc", ".babelrc", ".prettierrc", ".eslintrc"],
+			"options": {
+				"parser": "json"
+			}
+		}
+	]
+}
