@@ -4,12 +4,12 @@ import { Counter, DebounceInput, EditableList, Input } from '../../share/ui';
 
 import * as styles from './app.module.less';
 import { Lens } from '@vovikilelik/react-lens';
-import { CoveredEditableList, CoveredEditableListProps, CoveredModelLens } from '../../share/ui/editable-list/covered-editable-list';
+import { CoveredEditableList, CoveredModelLens } from '../../share/ui/editable-list/covered-editable-list';
 
-const textRenderer = value => <Input value={value} />
+const textRenderer = (value, i) => <Input key={i} value={value} />
 const addText = (value: Lens<string[]>) => value.set(value.get().concat(''));
 
-const counterRenderer = value => <Counter value={value} />
+const counterRenderer = (value, i) => <Counter key={i} value={value} />
 const addCounter = (value: Lens<number[]>) => value.set(value.get().concat(0));
 
 const addTextCoverable = (value: CoveredModelLens<string>) => value.add('Covered');

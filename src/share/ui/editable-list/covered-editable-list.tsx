@@ -14,9 +14,7 @@ export interface CoveredEditableListProps<T = unknown> extends ListProps<T> {
 }
 
 export const CoveredEditableList = <T extends any>({ onAdd, value, ...listProps }: CoveredEditableListProps<T>) => {
-	const model = useMemo(() => value.chain(current => {
-		return new CoveredModelLens(current.getter, current.setter, current)
-	}), [value]);
+	const model = useMemo(() => value.chain(CoveredModelLens<T>), [value]);
 
 	return (
 		<div>
