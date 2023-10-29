@@ -22,7 +22,7 @@ export const App: React.FC = () => {
 		<div className={styles.layout}>
 			<Counter value={form.go('counter')} />
 			<Input value={form.go('input')} />
-			<DebounceInput value={form.go('input')} debounce={500} />
+			<DebounceInput value={form.go('input')} debounce={{ read: 0, write: 500 }} />
 			<EditableList value={form.go('inputs')} renderer={textRenderer} onAdd={addText} />
 			<EditableList value={form.go('counters')} renderer={counterRenderer} onAdd={addCounter} />
 

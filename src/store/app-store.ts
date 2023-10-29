@@ -12,14 +12,16 @@ export interface AppStore {
 	form: Form;
 }
 
+const initForm: Form = {
+	counter: 0,
+	input: '',
+	inputs: [],
+	counters: [],
+	color: 0
+}
+
 const initData: AppStore = {
-	form: {
-		counter: 0,
-		input: '',
-		inputs: [],
-		counters: [],
-		color: 0
-	}
+	form: initForm
 }
 
 export const appStore = createStore(initData);
