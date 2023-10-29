@@ -1,8 +1,9 @@
 import React from 'react';
 import { appStore } from '../../store';
 import { Counter, DebounceInput, EditableList, Input } from '../../share/ui';
-import { Lens, transform, useLens } from '@vovikilelik/react-lens';
+import { Lens } from '@vovikilelik/react-lens';
 import { CoveredEditableList, CoveredModelLens } from '../../share/ui/editable-list/covered-editable-list';
+import { Color } from '../color';
 
 import * as styles from './app.module.less';
 
@@ -14,16 +15,8 @@ const addCounter = (value: Lens<number[]>) => value.set(value.get().concat(0));
 
 const addTextCoverable = (value: CoveredModelLens<string>) => value.add('Covered');
 
-const colorTransformer = transform<number, string>(
-  v => `#${v.toString(16)}`,
-  v => parseInt(v.substring(1), 16)
-);
-
 export const App: React.FC = () => {
 	const form = appStore.go('form');
-
-	const [color] = useLens(form.go('color'));
-
 
 	return (
 		<div className={styles.layout}>
@@ -34,9 +27,7 @@ export const App: React.FC = () => {
 			<EditableList value={form.go('counters')} renderer={counterRenderer} onAdd={addCounter} />
 
 			<CoveredEditableList value={form.go('inputs')} renderer={textRenderer} onAdd={addTextCoverable} />
-
-			<Input value={form.go('color').chain(colorTransformer)} />
-			<div>{color}</div>
+			<Color value={form.go('color')} />
 		</div>
 	);
 }
