@@ -2,6 +2,7 @@ import { createStore } from '@vovikilelik/react-lens';
 
 export interface Form {
 	counter: number;
+	input: string;
 }
 
 export interface AppStore {
@@ -10,7 +11,8 @@ export interface AppStore {
 
 const initData: AppStore = {
 	form: {
-		counter: 0
+		counter: 0,
+		input: ''
 	}
 }
 
