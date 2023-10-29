@@ -8,7 +8,7 @@
 	},
 	"dependencies": {
 		"@ant-design/icons": "^5.2.6",
-		"@vovikilelik/react-lens": "^3.0.3",
+		"@vovikilelik/react-lens": "^3.0.4",
 		"@vovikilelik/task-queue-js": "^1.1.0",
 		"antd": "^5.10.0",
 		"classnames": "^2.3.2",

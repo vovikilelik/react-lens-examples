@@ -5,6 +5,7 @@ export interface Form {
 	input: string;
 	inputs: string[];
 	counters: number[];
+	color: number;
 }
 
 export interface AppStore {
@@ -16,7 +17,8 @@ const initData: AppStore = {
 		counter: 0,
 		input: '',
 		inputs: [],
-		counters: []
+		counters: [],
+		color: 0
 	}
 }
 
