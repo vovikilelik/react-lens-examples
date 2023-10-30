@@ -20,7 +20,7 @@ const initForm: Form = {
 	color: 0
 }
 
-const initData: AppStore = {
+export const initData: AppStore = {
 	form: initForm
 }
 
