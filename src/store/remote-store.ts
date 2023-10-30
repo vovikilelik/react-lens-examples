@@ -1,5 +1,4 @@
-import { Callbacks, Differ, Lens, createStore } from '@vovikilelik/react-lens';
-import { AppStore, initData } from './app-store';
+import { Callbacks, Differ, createStore } from '@vovikilelik/react-lens';
 
 const KEY = 'app';
 
@@ -10,9 +9,12 @@ const request = (event, node) => {
 };
 
 export interface RemoteModel {
-	id?: string;
+	id: string;
 	data?: any;
 }
 
-export const remoteStore = createStore({} as RemoteModel)
-	.on(Differ.check('id').changed(), Callbacks.async(request, (response, event, node) => node.go('data').set(response)))
+export const remoteStore = createStore({ id: '' } as RemoteModel)
+	.on(
+		Differ.check('id').changed(),
+		Callbacks.async(request, (response, event, node) => node.go('data').set(response), 300)
+	);

@@ -1,11 +1,12 @@
 import React from 'react';
-import { appStore } from '../../store';
+import { appStore, remoteStore } from '../../store';
 import { Counter, DebounceInput, EditableList, Input } from '../../share/ui';
 import { Lens } from '@vovikilelik/react-lens';
 import { CoveredEditableList, CoveredModelLens } from '../../share/ui/editable-list/covered-editable-list';
 import { Color } from '../color';
 
 import * as styles from './app.module.less';
+import { Remote } from '../remote/remote';
 
 const textRenderer = (value, i) => <Input key={i} value={value} />
 const addText = (value: Lens<string[]>) => value.set(value.get().concat(''));
@@ -28,6 +29,8 @@ export const App: React.FC = () => {
 
 			<CoveredEditableList value={form.go('inputs')} renderer={textRenderer} onAdd={addTextCoverable} />
 			<Color value={form.go('color')} />
+
+			<Remote value={remoteStore} />
 		</div>
 	);
 }
