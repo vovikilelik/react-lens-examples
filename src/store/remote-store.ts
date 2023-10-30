@@ -1,12 +1,11 @@
 import { Callbacks, Differ, createStore } from '@vovikilelik/react-lens';
 
-const KEY = 'app';
+const request = (event, node) => new Promise(resolve => {
+	setTimeout(() => resolve(Math.random()), 1000);
+});
 
-const request = (event, node) => {
-	return new Promise(resolve => {
-		setTimeout(() => resolve(Math.random()), 1000);
-	});
-};
+const assembler = (response, event, node) =>
+	node.go('data').set(response);
 
 export interface RemoteModel {
 	id: string;
@@ -16,5 +15,5 @@ export interface RemoteModel {
 export const remoteStore = createStore({ id: '' } as RemoteModel)
 	.on(
 		Differ.check('id').changed(),
-		Callbacks.async(request, (response, event, node) => node.go('data').set(response), 300)
+		Callbacks.async(request, assembler, 300)
 	);
